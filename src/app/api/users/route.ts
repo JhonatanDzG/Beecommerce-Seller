@@ -117,7 +117,6 @@ export const PUT = async (req: NextRequest) => {
     // Construimos el objeto actualizado basado en el modelo User
     const updatedData: Partial<User> = {};
     if (name) updatedData.name = name;
-    if (contact) updatedData.contact = contact;
     if (address) updatedData.address = address;
     if (contact && typeof contact === "object") {
       updatedData.contact = {
