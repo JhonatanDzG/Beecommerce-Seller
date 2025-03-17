@@ -12,8 +12,6 @@ import {
 } from "firebase/firestore";
 import { usersCollection } from "@/lib/db";
 
-//"oc4REZahDESdGvwkRcng"
-
 export const GET = async () => {
   try {
     //Obtener los documentos de la colección "users"
