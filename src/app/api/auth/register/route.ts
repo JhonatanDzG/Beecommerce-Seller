@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { registerUser } from "@/lib/auth";
 import { getAuth } from "firebase/auth";
 
-export const GET = async (req: NextRequest) => {
+export const GET = async () => {
   try {
     const authInstance = getAuth();
     const user = authInstance.currentUser;

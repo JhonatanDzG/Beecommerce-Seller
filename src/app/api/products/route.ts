@@ -68,6 +68,7 @@ export const POST = async (req: NextRequest) => {
       { status: 201 }
     );
   } catch (error) {
+    console.error("Error adding product", error);
     return NextResponse.json(
       { error: "Error adding product" },
       { status: 500 }
@@ -152,6 +153,7 @@ export const DELETE = async (req: NextRequest) => {
       { status: 200 }
     );
   } catch (error) {
+    console.error("Error deleting product", error);
     return NextResponse.json(
       { error: "Error deleting product" },
       { status: 500 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { auth } from "./firebase";
 import { setDoc, doc } from "firebase/firestore";
 import {

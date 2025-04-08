@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function Navbar() {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Cerrar el menú de usuario si se hace clic fuera
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!(event.target as HTMLElement).closest("#user-menu-button")) {
@@ -27,10 +27,10 @@ function Navbar() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         
         {/* Logo */}
-        <a href="/" className="flex items-center space-x-3">
+        <Link href="/" className="flex items-center space-x-3">
           <Image src="/bee.png" alt="beecommerce" width={32} height={32} />
           <span className="text-2xl font-semibold text-white">Beecommerce</span>
-        </a>
+        </Link>
 
         {/* Contenedor de Menús */}
         <div className="flex items-center space-x-4 md:order-2">
@@ -60,24 +60,24 @@ function Navbar() {
                 </div>
                 <ul className="py-2">
                   <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <Link href="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       Dashboard
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <Link href="/settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       Settings
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <Link href="/earnings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       Earnings
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                    <Link href="/signout" className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
                       Sign out
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -98,11 +98,11 @@ function Navbar() {
         {/* Menú de navegación */}
         <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:flex md:items-center md:w-auto w-full`}>
           <ul className="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 text-white">
-            <li><a href="#" className="block py-2 px-3 hover:text-gray-400">Home</a></li>
-            <li><a href="#" className="block py-2 px-3 hover:text-gray-400">About</a></li>
-            <li><a href="#" className="block py-2 px-3 hover:text-gray-400">Services</a></li>
-            <li><a href="#" className="block py-2 px-3 hover:text-gray-400">Pricing</a></li>
-            <li><a href="#" className="block py-2 px-3 hover:text-gray-400">Contact</a></li>
+            <li><Link href="/" className="block py-2 px-3 hover:text-gray-400">Home</Link></li>
+            <li><Link href="/about" className="block py-2 px-3 hover:text-gray-400">About</Link></li>
+            <li><Link href="/services" className="block py-2 px-3 hover:text-gray-400">Services</Link></li>
+            <li><Link href="/pricing" className="block py-2 px-3 hover:text-gray-400">Pricing</Link></li>
+            <li><Link href="/contact" className="block py-2 px-3 hover:text-gray-400">Contact</Link></li>
           </ul>
         </div>
       </div>
