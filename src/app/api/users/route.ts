@@ -56,6 +56,8 @@ export const POST = async (req: NextRequest) => {
         number: contact.number,
       },
       address,
+      profileComplete: false,
+      createdAt: new Date(),
     };
 
     //Verificar si el producto ya existe
@@ -118,9 +120,9 @@ export const PUT = async (req: NextRequest) => {
     if (address) updatedData.address = address;
     if (contact && typeof contact === "object") {
       updatedData.contact = {
-        ...existingUser.contact,//Mantiene props anteriores
-        ...contact,//Sobreescribe con props actualizadas
-      }
+        ...existingUser.contact, //Mantiene props anteriores
+        ...contact, //Sobreescribe con props actualizadas
+      };
     }
 
     await updateDoc(userRef, updatedData);
@@ -157,9 +159,9 @@ export const DELETE = async (req: NextRequest) => {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    //Eliminar usuario
     console.log("Deleting user: ", userSnap.data().name);
 
+    //Eliminar usuario
     await deleteDoc(userRef);
 
     return NextResponse.json(
